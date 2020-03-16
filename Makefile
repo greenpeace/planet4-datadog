@@ -1,7 +1,7 @@
 # CHART_NAME 		?= stable/datadog
 # CHART_VERSION	?= 2.0.7
 
-# NAMESPACE			?= datadog
+NAMESPACE			?= default
 # RELEASE 			?= p4-datadog
 #
 # DEV_CLUSTER		:= p4-development
@@ -42,7 +42,7 @@ rbac:
 	kubectl -n $(NAMESPACE) create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml" || true
 
 agent:
-	kubectl -n $(NAMESPACE) create -f datadog-agent.yaml
+	kubectl -n $(NAMESPACE) apply -f datadog-agent.yaml
 
 clean:
 	kubectl -n $(NAMESPACE) delete -f datadog-agent.yaml
