@@ -38,6 +38,8 @@ spec:
             value: "datadoghq.eu"
           - name: DD_COLLECT_KUBERNETES_EVENTS
             value: "true"
+          - name: DD_PROCESS_AGENT_ENABLED
+            value: "true"
           - name: DD_LEADER_ELECTION
             value: "true"
           - name: KUBERNETES
